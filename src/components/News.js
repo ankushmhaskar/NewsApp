@@ -1,0 +1,293 @@
+import React, { Component } from 'react'
+import NewsItem from './NewsItem'
+
+export class News extends Component {
+  articles = [
+    {
+      "source": {
+        "id": null,
+        "name": "CBS Sports"
+      },
+      "author": "",
+      "title": "Donovan Mitchell trade: Cavaliers acquire All-Star for Collin Sexton, three unprotected picks, per report - CBS Sports",
+      "description": "Cleveland is reportedly trading Collin Sexton, Ochai Agbaji, Lauri Markkanen and loads of draft capital to Utah",
+      "url": "https://www.cbssports.com/nba/news/donovan-mitchell-trade-cavaliers-acquire-all-star-for-collin-sexton-three-unprotected-picks-per-report/",
+      "urlToImage": "https://sportshub.cbsistatic.com/i/r/2022/09/01/aee4d09c-aee9-4723-8d19-630e5f517d53/thumbnail/1200x675/68ba24114e6bccc443004188110f679f/getty-images-donovan-mitchell-jazz.jpg",
+      "publishedAt": "2022-09-02T14:20:00Z",
+      "content": "The Cleveland Cavaliers have traded for Utah Jazz guard Donovan Mitchell, according to Adrian Wojnarowski. The three-time All-Star guard is going to Cleveland in exchange for a package centered aroun… [+5227 chars]"
+    },
+    {
+      "source": {
+        "id": "fox-news",
+        "name": "Fox News"
+      },
+      "author": "Caitlin McFall",
+      "title": "Argentina VP Cristina Fernández escapes assassination attempt unharmed after gun misfires; suspect arrested - Fox News",
+      "description": "A man pointed a gun at Argentina's Vice President Cristina Fernández and pulled the trigger Thursday night. The powerful leader was unharmed because the gun misfired.",
+      "url": "https://www.foxnews.com/world/argentina-vp-cristina-fernandez-escapes-assassination-attempt-unharmed-after-gun-misfires-suspect-arrested",
+      "urlToImage": "https://static.foxnews.com/foxnews.com/content/uploads/2022/09/AP22245051349002.jpg",
+      "publishedAt": "2022-09-02T13:43:34Z",
+      "content": "A man has been arrested after he allegedly aimed a handgun point-blank at Argentinian Vice President Cristina Fernández and attempted to shoot her outside her home in Buenos Aires on Thursday.\r\nPresi… [+5452 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "CNBC"
+      },
+      "author": "Michael Wayland",
+      "title": "Ford's new vehicle sales slow in August, in line with expectations - CNBC",
+      "description": "Ford Motor on Friday said its U.S. sales last month increased double-digits from a year earlier but were off about 4% from the prior month.",
+      "url": "https://www.cnbc.com/2022/09/02/fords-new-vehicle-sales-slow-in-august-in-line-with-expectations.html",
+      "urlToImage": "https://image.cnbcfm.com/api/v1/image/107088807-1657811219952-2023_F-150_Raptor_R_exterior__Avalanche_Gray__08.jpg?v=1657811310&w=1920&h=1080",
+      "publishedAt": "2022-09-02T13:15:04Z",
+      "content": "DETROIT Ford Motor on Friday said its U.S. sales last month increased double-digits from a year earlier but were off about 4% from the prior month, as the company and auto industry continue to manage… [+2262 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "BuzzFeed News"
+      },
+      "author": "Stephanie Soteriou",
+      "title": "Britney Spears Told Her Son Jayden, 15, That She’s “Failed As A Mother” After He Defended Her Dad Jamie Spears Over The Conservatorship In A Tell-All Interview - BuzzFeed News",
+      "description": "“If you could pause for a second, remember where you came from!!! I hope you can look in the mirror and remember you are my child and always will be!!!”",
+      "url": "https://www.buzzfeednews.com/article/stephaniesoteriou/britney-spears-son-failed-mother-defended-dad",
+      "urlToImage": "https://img.buzzfeed.com/buzzfeed-static/static/2022-09/2/12/enhanced/ab60311f6639/original-4073-1662123309-19.jpg?crop=1243:651;0,16%26downsize=1250:*",
+      "publishedAt": "2022-09-02T13:10:49Z",
+      "content": null
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "New York Post"
+      },
+      "author": "Jenna Lemoncelli",
+      "title": "Purdue safety Chris Jefferson has epic pick-six against Penn State, then vomits on field - New York Post ",
+      "description": "Puke and rally.",
+      "url": "https://nypost.com/2022/09/02/purdues-chris-jefferson-vomits-after-pick-six-against-penn-state/",
+      "urlToImage": "https://nypost.com/wp-content/uploads/sites/2/2022/09/newspress-collage-23714237-1662123205993.jpg?quality=75&strip=all&1662108847&w=1024",
+      "publishedAt": "2022-09-02T12:55:00Z",
+      "content": "Puke and rally. \r\nPurdue safety Chris Jefferson was seen vomiting on the sidelines in West Lafayette after a brilliant 72-yard pick-six that gave the Boilermakers a 31-28 lead over Penn State in Thur… [+769 chars]"
+    },
+    {
+      "source": {
+        "id": "cnn",
+        "name": "CNN"
+      },
+      "author": "Veronica Stracqualursi, CNN",
+      "title": "Iraq vet and former Democratic Party official criticizes Biden over presence of Marines in speech - CNN",
+      "description": "An Iraq War veteran and former Democratic Party official on Friday criticized the presence of US Marines in the backdrop of President Joe Biden's speech in Philadelphia, during which he issued stinging political criticism of Republicans.",
+      "url": "https://www.cnn.com/2022/09/02/politics/biden-philadelphia-speech-criticism-marines-cnntv/index.html",
+      "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/220902074858-biden-marines-super-tease.jpeg",
+      "publishedAt": "2022-09-02T12:49:00Z",
+      "content": "Washington (CNN)An Iraq War veteran and former Democratic Party official on Friday criticized the presence of US Marines in the backdrop of President Joe Biden's speech in Philadelphia, during which … [+2080 chars]"
+    },
+    {
+      "source": {
+        "id": "cnn",
+        "name": "CNN"
+      },
+      "author": "Nouran Salahieh and Jason Hanna, CNN",
+      "title": "Jackson, Mississippi, residents told to shower with mouths closed as water treatment plant repairs continue on Day 4 of water shortage - CNN",
+      "description": "As Mississippi's capital city entered a fourth day on Thursday with little or no water flowing from faucets, authorities were scrambling to get a failing water treatment plant plagued by decades of deferred maintenance back online.",
+      "url": "https://www.cnn.com/2022/09/01/us/jackson-water-system-failing-thursday/index.html",
+      "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/220831233436-16-jackson-water-system-failure-0831-super-tease.jpg",
+      "publishedAt": "2022-09-02T11:40:00Z",
+      "content": "(CNN)As Mississippi's capital city entered a fourth day on Thursday with little or no water flowing from faucets, authorities were scrambling to get a failing water treatment plant plagued by decades… [+9077 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Page Six"
+      },
+      "author": "Francesca Bacardi",
+      "title": "Kanye West erases all Instagram posts about his family, Pete Davidson - Page Six",
+      "description": "The Yeezy fashion designer appeared to have a change of heart and erased — or archived — all the posts that were part of his social media conniption.",
+      "url": "https://pagesix.com/2022/09/02/kanye-west-erases-all-instagram-posts-after-rant/",
+      "urlToImage": "https://pagesix.com/wp-content/uploads/sites/3/2022/09/kanye-west-00.jpg?quality=75&strip=all&w=1200",
+      "publishedAt": "2022-09-02T11:39:00Z",
+      "content": "As quickly as Kanye West flooded Instagram with rants about those closest to him, he erased them.\r\nThe Yeezy fashion designer wiped or archived all of angry posts about his children’s school, the Kar… [+1557 chars]"
+    },
+    {
+      "source": {
+        "id": "al-jazeera-english",
+        "name": "Al Jazeera English"
+      },
+      "author": "Al Jazeera",
+      "title": "Mosque blast in Afghanistan kills prominent scholar, civilians - Al Jazeera English",
+      "description": "Pro-Taliban imam among the dozens dead and wounded in a suicide attack on the Guzargah Mosque in western Herat city.",
+      "url": "https://www.aljazeera.com/news/2022/9/2/explosion-at-afghanistan-mosque-kills-prominent-cleric-civilians",
+      "urlToImage": "https://www.aljazeera.com/wp-content/uploads/2022/09/talib.jpg?resize=1200%2C675",
+      "publishedAt": "2022-09-02T11:10:49Z",
+      "content": "An explosion at a mosque in the city of Herat in western Afghanistan killed a high-profile pro-Taliban scholar as well as more than a dozen civilians.\r\nImages on social media on Friday showed what ap… [+2046 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Space.com"
+      },
+      "author": "Mike Wall",
+      "title": "Artemis 1 traffic jam: NASA moon launch may draw crowd of 400000 - Space.com",
+      "description": "There will be lots of folks on Florida's Space Coast for Labor Day weekend.",
+      "url": "https://www.space.com/artemis-1-moon-launch-huge-crowd",
+      "urlToImage": "https://cdn.mos.cms.futurecdn.net/cs7K6hoDfsuXi5iQNbbHrD-1200-80.jpeg",
+      "publishedAt": "2022-09-02T11:00:37Z",
+      "content": "A crowd the size of a major American city may turn out to watch NASA's Artemis 1 moon rocket lift off this weekend.\r\nArtemis 1\r\n was supposed to launch from Kennedy Space Center, in Florida's Brevard… [+2827 chars]"
+    },
+    {
+      "source": {
+        "id": "ars-technica",
+        "name": "Ars Technica"
+      },
+      "author": "Scharon Harding",
+      "title": "Breaking down how USB4 goes where no USB standard has gone before - Ars Technica",
+      "description": "USB4 vs. Thunderbolt 4—and everything else to know about the newest USB standard.",
+      "url": "https://arstechnica.com/gadgets/2022/09/breaking-down-how-usb4-goes-where-no-usb-standard-has-gone-before/",
+      "urlToImage": "https://cdn.arstechnica.net/wp-content/uploads/2022/08/usb4-explainer-760x380.jpg",
+      "publishedAt": "2022-09-02T10:40:13Z",
+      "content": "51 with 38 posters participating\r\nUSB has come a long way since the 12Mbps days of the '90s. It has waved goodbye to USB-B and is inching away from USB-A in favor of the slim, reversible USB-C connec… [+994 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "CNBC"
+      },
+      "author": "Emma Graham",
+      "title": "'Climate disaster of biblical proportions': Pakistan minister warns flood damage will exceed $10 billion - CNBC",
+      "description": "Already reeling from an economic crisis, flood waters have submerged over one third of the country in water, killing over 1,000 and impacting 33 million people.",
+      "url": "https://www.cnbc.com/2022/09/02/pakistan-warns-flood-damage-will-exceed-10-billion.html",
+      "urlToImage": "https://image.cnbcfm.com/api/v1/image/107113116-gettyimages-1242876467-AA_02092022_850422.jpeg?v=1662110927&w=1920&h=1080",
+      "publishedAt": "2022-09-02T10:29:27Z",
+      "content": "Pakistan's foreign minister made an urgent call for international aid, with the death toll from historic flooding across the country expected to rise in the coming days. \r\nAlready reeling from an eco… [+2869 chars]"
+    },
+    {
+      "source": {
+        "id": "usa-today",
+        "name": "USA Today"
+      },
+      "author": "Rick Jervis",
+      "title": "Texas, Arizona bus migrants from border to cities to make 'statement' - USA TODAY",
+      "description": "Thousands of migrants are being bused from the border to New York, Washington and now Chicago. Advocates say the plans could backfire on the states that started them",
+      "url": "https://www.usatoday.com/story/news/nation/2022/09/02/texas-arizona-busing-migrants-to-other-us-cities/7949381001/",
+      "urlToImage": "https://www.gannett-cdn.com/presto/2022/08/11/USAT/027ae36d-e636-43f8-98c5-b214eb405991-Busloads_of_migrants_sent_to_NYC.png?crop=1026,578,x0,y80&width=1026&height=578&format=pjpg&auto=webp",
+      "publishedAt": "2022-09-02T10:02:19Z",
+      "content": "First Washington D.C., then New York City. Now Chicago. \r\nOfficials from Texas and Arizona have been sending busloads of asylum seekers to those cities to the east for months. On Wednesday, Chicago j… [+9563 chars]"
+    },
+    {
+      "source": {
+        "id": "fox-news",
+        "name": "Fox News"
+      },
+      "author": "Brie Stimson",
+      "title": "Amazon releases 'Lord of the Rings: The Rings of Power' but fans complain only 2nd episode worked at first - Fox News",
+      "description": "Fans took to Twitter Thursday to complain that after Amazon dropped its first two episodes of \"The Lord of the Rings: The Rings of Power\" only the second episode would play.",
+      "url": "https://www.foxnews.com/entertainment/amazon-releases-lord-rings-rings-power-but-fans-complain-only-2nd-episode-worked-first",
+      "urlToImage": "https://static.foxnews.com/foxnews.com/content/uploads/2022/09/rings-of-power-still.jpg",
+      "publishedAt": "2022-09-02T09:41:46Z",
+      "content": "Amazon's most expensive show ever appeared to get off to a bit of a rocky start.\r\nA slew of Amazon Prime customers hoping to watch the streaming services lavish \"The Lord of the Rings: The Rings of P… [+2533 chars]"
+    },
+    {
+      "source": {
+        "id": "engadget",
+        "name": "Engadget"
+      },
+      "author": "https://www.engadget.com/about/editors/steve-dent",
+      "title": "Leica shows off its first 4K ultra-short-throw projector - Engadget",
+      "description": "Leica has just unveiled an ultra short throw (UST) projector called the Cine 1 that can beam an 80- or 100-inch image at just six inches from a wall.",
+      "url": "https://www.engadget.com/leica-just-launched-a-4-k-ultra-short-throw-projector-093541583.html",
+      "urlToImage": "https://s.yimg.com/os/creatr-uploaded-images/2022-09/2a70be50-2a9c-11ed-9ef4-159f0553bbbe",
+      "publishedAt": "2022-09-02T09:37:27Z",
+      "content": "Leica has just unveiled its first ultra-short-throw (UST) projector called the Cine 1 that can beam an 80- or 100-inch image while parked as little as six inches from a wall. While it might seem a bi… [+1705 chars]"
+    },
+    {
+      "source": {
+        "id": "abc-news",
+        "name": "ABC News"
+      },
+      "author": "The Associated Press",
+      "title": "Tropical Storm Danielle strengthens, soon to be a hurricane - ABC News",
+      "description": "Tropical Storm Danielle continues to strengthen in the Atlantic",
+      "url": "https://abcnews.go.com/US/wireStory/tropical-storm-danielle-strengthens-hurricane-89209617",
+      "urlToImage": "https://s.abcnews.com/images/US/abc_news_default_2000x2000_update_16x9_992.jpg",
+      "publishedAt": "2022-09-02T08:51:53Z",
+      "content": "MIAMI -- Tropical Storm Danielle picked up strength in the Atlantic and was forecast to become the first hurricane of an unusually quiet storm season on Friday morning.\r\nThe storm is not currently a … [+994 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "CNBC"
+      },
+      "author": "Sam Meredith",
+      "title": "UN team at Ukraine nuclear plant ‘not going anywhere’; Russia issues warning to Moldova - CNBC",
+      "description": "The head of the U.N.'s nuclear watchdog is adamant that the team will stay at the Russian-occupied Zaporizhzhia nuclear plant.",
+      "url": "https://www.cnbc.com/2022/09/02/russia-ukraine-live-updates.html",
+      "urlToImage": "https://image.cnbcfm.com/api/v1/image/107113074-1662101277818-gettyimages-1242854417-AFP_32HF7H8.jpeg?v=1662101366&w=1920&h=1080",
+      "publishedAt": "2022-09-02T08:05:00Z",
+      "content": "Russia's energy influence over Europe appears to be coming to an end, energy and political analysts say, potentially alleviating the risk of further supply disruptions.\r\nEurope in recent months has e… [+890 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "CNBC"
+      },
+      "author": "Carmen Reinicke",
+      "title": "Stock futures fall slightly ahead of key August jobs report due Friday - CNBC",
+      "description": "Here's how stocks are trading ahead of Friday's key August jobs report.",
+      "url": "https://www.cnbc.com/2022/09/01/stock-futures-are-flat-ahead-of-key-august-jobs-report-due-friday.html",
+      "urlToImage": "https://image.cnbcfm.com/api/v1/image/107112802-NYSE-Trading-Floor-OB-Photo-220901-CC-PRESS-3.jpg?v=1662056425&w=1920&h=1080",
+      "publishedAt": "2022-09-02T07:59:00Z",
+      "content": "U.S. stock futures were flat Friday morning as investors await a key jobs report for August due Friday that will give more information about the state of the economy.\r\nDow Jones Industrial Average fu… [+1180 chars]"
+    },
+    {
+      "source": {
+        "id": "reuters",
+        "name": "Reuters"
+      },
+      "author": null,
+      "title": "Britain's new PM faces an 80s playlist: recession, unrest and runaway prices - Reuters UK",
+      "description": "Britain's prime minister in waiting Liz Truss models herself on Margaret Thatcher, judging by her photo ops echoing famous images of the country's first female premier.",
+      "url": "https://www.reuters.com/world/uk/britains-new-pm-faces-an-80s-playlist-recession-unrest-runaway-prices-2022-09-02/",
+      "urlToImage": "https://www.reuters.com/resizer/2pTvepFDulPmZ0-o_FnFNiq6A3c=/1200x628/smart/filters:quality(80)/cloudfront-us-east-2.images.arcpublishing.com/reuters/ODBEND777ZPVBMJGLAX6PLRPCE.jpg",
+      "publishedAt": "2022-09-02T05:09:00Z",
+      "content": "RUNCORN, England, Sept 2 (Reuters) - Britain's prime minister in waiting Liz Truss models herself on Margaret Thatcher, judging by her photo ops echoing famous images of the country's first female pr… [+8519 chars]"
+    },
+    {
+      "source": {
+        "id": "associated-press",
+        "name": "Associated Press"
+      },
+      "author": "Darlene Superville",
+      "title": "Big reveal: Biden to help unveil Obama White House portrait - The Associated Press",
+      "description": "WASHINGTON (AP) — It’s been more than a decade since President Barack Obama  and his wife, Michelle, welcomed back George W. Bush and his wife, Laura, for the unveiling of their White House portraits, part of a beloved Washington tradition that for decades ma…",
+      "url": "https://apnews.com/article/biden-entertainment-travel-george-w-bush-b9d7ce50b864dce33d6b2995f026fcb0",
+      "urlToImage": "https://storage.googleapis.com/afs-prod/media/3b719385b65d4582b5b52e4ace6a020c/3000.jpeg",
+      "publishedAt": "2022-09-02T04:31:05Z",
+      "content": "WASHINGTON (AP) Its been more than a decade since President Barack Obama and his wife, Michelle, welcomed back George W. Bush and his wife, Laura, for the unveiling of their White House portraits, pa… [+6960 chars]"
+    }
+  ]
+  constructor() {
+    super();
+    console.log("this is text");
+    this.state = {
+      articles: this.articles,
+      loading: false
+    }
+  }
+  render() {
+    return (
+      <div className='NewsContent my-4 p-1'>
+        <div className='h1'>News</div>
+        <div className='row mx-auto'>
+          {this.state.articles.map((element) => {
+            return <div className='col-md-4' key={element.url}>
+            <NewsItem title={element.title.slice(0,15)} description={element.description.slice(0,88)} imageUrl={element.urlToImage} newsUrl={element.url} />
+          </div>
+          })}
+
+        </div>
+      </div>
+    )
+  }
+}
+
+export default News
+
