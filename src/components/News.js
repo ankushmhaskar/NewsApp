@@ -4,6 +4,7 @@ import Spiner from './Spiner';
 import PropTypes from 'prop-types'
 
 
+
 const News = (props) => {
 
   const capatilizeFirst = (name) => {
@@ -14,6 +15,7 @@ const News = (props) => {
   const [loading, setLoading] = useState(false)
   const [page, setPage] = useState(false)
   const [totalResults, setTotalResults] = useState(0)
+  const [search, setSearch] = useState('')
   // document.title = `${capatilizeFirst(props.category)}- newsmonkey`;
 
 
@@ -76,15 +78,28 @@ const News = (props) => {
     setPage(page - 1);
 
   }
+  // onchange on serch type here 
+  const searchChange = (Search) => {
+    console.log('change');
+    setSearch(Search.target.value)
+    
+  }
+ 
+  
 
   let { heading } = props;
   return (
     <>
       <div className='my-3'>
-        <h2 className='text-center'>{heading} From {capatilizeFirst(props.category)}</h2>
-        {loading && <Spiner />}
-        <div className='row'>
-          {!loading && articles.map((element) => {
+        <div className="mb-3 row">
+          <h2 className='text-start col-6'>{heading} From {capatilizeFirst(props.category)}</h2>
+          {loading && <Spiner />}
+          <div className='col-6'>
+            <input type="text" className="form-control" id="text" placeholder='search here...' onChange={searchChange} value={search} />
+          </div>
+        </div>
+        <div className={`row text-${props.mode === 'dark' ? 'dark' : 'dark'}`}>
+          {!loading && articles.filter((element)=>element.title.includes(search)).map((element) => {
             return <div className='col-md-4 col-sm-6' key={element.url}>
               <NewsItem title={element.title ? element.title : ""} description={element.description ? element.description : ""} imageUrl={element.urlToImage} url={element.url} author={element.author} date={element.publishedAt} />
             </div>
