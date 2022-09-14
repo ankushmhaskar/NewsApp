@@ -15,15 +15,18 @@ const App = () => {
 
   const [progress, setProgress] = useState(5)
   const [mode, setMode] = useState('light');
+  const [enable, setEnable] = useState('switch to dark mode');
   const modeDark = () => {
     if (mode === 'light') {
       setMode('dark')
+      setEnable('switch to light mode')
       document.body.style.backgroundColor = 'black';
       document.body.style.color = 'white';
       
     }
     if (mode==='dark'){
       setMode('light')
+      setEnable('switch to dark mode')
       document.body.style.backgroundColor = 'white';
       document.body.style.color = 'black';
       
@@ -38,7 +41,7 @@ const App = () => {
           height={3}
 
         />
-        <Navbar heading={"NEWS"} mode={modeDark} />
+        <Navbar heading={"NEWS"} mode={mode} modeDark={modeDark} enable={enable} />
         <div className='container'>
 
           <Routes>
